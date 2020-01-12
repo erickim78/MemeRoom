@@ -9,11 +9,11 @@ Fast forward to 01/10/20 17:00.
 Meet **MemeRoom**, a chatroom that takes your input text and scrapes the web for images that match and adds your text as impact font over it.
 
 # Technologies Used
--- React/JS
---- Html/CSS
--- [Pusher Chatkit] (https://pusher.com/chatkit)
--- Python
---- Flask
+- React/JS
+- Html/CSS
+- [Pusher Chatkit](https://pusher.com/chatkit)
+- Python
+- Flask
 
 # Obstacles Faced
 We intended to explore a lot of options for this chatroom before stumbling upon Chatkit, such as socket programming, Firebase, and other chatroom available technologies.
