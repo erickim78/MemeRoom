@@ -36,8 +36,8 @@
             <input type="submit">
         </form>
 
+        <!--
         <script src="https://unpkg.com/@pusher/chatkit-client@1/dist/web/chatkit.js"></script>
-        <script src="index.pack.js"></script>
         <script>
             const tokenProvider = new Chatkit.TokenProvider({
             url:
@@ -67,7 +67,8 @@
                                 );
                                 ul.appendChild(li);
                             }
-                        }
+                        },
+                        messageLimit: 8
                     });
                     const form = document.getElementById("message-form");
                     form.addEventListener("submit", e => {
@@ -84,5 +85,6 @@
                     console.error("error: ", error);
                 });
         </script>
+        -->
     </body>
 </html>
