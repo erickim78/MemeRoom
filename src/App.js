@@ -29,12 +29,12 @@ export default App;
 
 // App.js
 import React from 'react'
-import Chatkit from '@pusher/chatkit-client'
 import MessageList from './components/MessageList'
 import SendMessageForm from './components/SendMessageForm'
 import RoomList from './components/RoomList'
 import NewRoomForm from './components/NewRoomForm'
 
+import { ChatManager, TokenProvider } from '@pusher/chatkit-client'
 import { tokenUrl, instanceLocator } from './config'
 
 class App extends React.Component {
@@ -44,6 +44,7 @@ class App extends React.Component {
         this.state = {
             messages: []
         }
+        this.sendMessage = this.sendMessage.bind(this)
     }
     componentDidMount(){
         const chatManager = Chatkit.ChatManager({
@@ -62,11 +63,11 @@ class App extends React.Component {
             tokenProvider: tokenProvider
         });
 
-        chatManager
-            .connect()
+        chatManager.connect()
             .then(currentUser => {
+                this.currentUser = currentUser
                 console.log("Connected as user: ", currentUser);
-                currentUser.subscribeToRoomMultipart({
+                this.currentUser.subscribeToRoomMultipart({
                     roomId: currentUser.rooms[0].id,
                     hooks: {
                         onMessage: message => {
@@ -105,6 +106,9 @@ class App extends React.Component {
 
     }
 
+    sendMessage() {
+        this.currentUser.sendMessage()
+    }
     render(){
         return(
             <div className="app">
