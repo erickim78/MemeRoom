@@ -73,11 +73,41 @@
                     form.addEventListener("submit", e => {
                         e.preventDefault();
                         const input = document.getElementById("message-text");
+
+                        const query = input.value;
+                        const requesturl = 'http://127.0.0.1:5000/meme/' + query + '/' + query;
+
+                        let request = new XMLHttpRequest();
+                        let requestflag = false;
+                        request.open("GET", requesturl);
+                        request.send();
+                        request.onload = () => {
+                          console.log(request);
+                          if( request.status == 200 ){
+                            let parsed = JSON.parse( request.response );
+                            
+                            currentUser.sendMultipartMessage( {
+                                roomId: currentUser.rooms[0].id,
+                                parts: [
+                                    { type: "text/plain", content: input.value },
+                                    { type: "image/jpg", url: "https://www.biography.com/.image/t_share/MTE4MDAzNDEwNzg5ODI4MTEw/barack-obama-12782369-1-402.jpg",},
+                                    //{ customData: { metadata: 42 } }
+                                ]
+                            });
+
+                          }
+                          else {
+                            console.log("Error Occured")
+                          }
+                        }
+                        
+/*
                         currentUser.sendSimpleMessage({
                             text: input.value,
                             roomId: currentUser.rooms[0].id
-                        });
-                        input.value = "";
+                        });*/
+
+                        //input.value = "";
                     });
                 })
                 .catch(error =>{

@@ -27,7 +27,7 @@ def makememe( text, location ):
     for line in memetext:
         l_width, l_height = font.getsize(line)
         xoffset = (im_width - l_width)/2
-        draw.text( (xoffset,yoffset), line, fill='white', font=font)
+        draw.text( (xoffset,yoffset), line, fill='cyan', font=font,stroke_fill='black')
         yoffset += l_height
 
     image.save(img)

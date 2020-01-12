@@ -8,10 +8,10 @@ def downloadimage(query):
     response = google_images_download.googleimagesdownload()  
     arguments = {
         "keywords": query,
-        "format": "png",
+        "format": "jpg",
         "limit" : 1,
         "print_urls": True,
-        "size": "medium",
+        #"size": "medium",
         "safe_search": True,
         "aspect_ratio": "square",
         "output_directory": "./",
@@ -27,7 +27,7 @@ def downloadimage(query):
             "format": "png",
             "limit" : 1,
             "print_urls": True,
-            "size": "medium",
+            #"size": "medium",
             "safe_search": True,
             "output_directory": "./",
             "image_directory": imgdirectory
