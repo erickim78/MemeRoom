@@ -13,7 +13,8 @@ serviceWorker.unregister();
 */
 
 //Code Begins Here
-const tokenProvider = new.Chatkit.TokenProvider({
+/*
+const tokenProvider = new Chatkit.TokenProvider({
     url:
     "https://us1.pusherplatform.io/services/chatkit_token_provider/v1/777432fb-7020-4529-aa8d-d944028417f3/token"
 });
@@ -54,3 +55,4 @@ myForm.addEventListener('submit', (e) => {
     let yourMessage = document.getElementById("message-text".value);
     submitMsg(yourMessage);
 })
+*/
